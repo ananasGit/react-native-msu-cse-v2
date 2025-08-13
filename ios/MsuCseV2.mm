@@ -1,5 +1,8 @@
 #import "MsuCseV2.h"
+
+#ifdef RCT_NEW_ARCH_ENABLED
 #import "MsuCseV2-Swift.h"
+#endif
 
 @implementation MsuCseV2 {
     CSEBridge *_cseBridge;
@@ -103,10 +106,12 @@ RCT_EXPORT_MODULE()
     return [_cseBridge hasErrors];
 }
 
+#ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params
 {
     return std::make_shared<facebook::react::NativeMsuCseV2SpecJSI>(params);
 }
+#endif
 
 @end
