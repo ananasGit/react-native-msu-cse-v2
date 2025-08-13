@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => min_ios_version_supported }
   s.source       = { :git => "https://github.com/ananasGit/react-native-msu-cse-v2.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{m,mm,cpp,swift}"
+  s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
   s.private_header_files = "ios/**/*.h"
 
 
