@@ -17,8 +17,11 @@ Pod::Spec.new do |s|
   
   s.pod_target_xcconfig = {
     "DEFINES_MODULE" => "YES",
-    "SWIFT_OBJC_INTERFACE_HEADER_NAME" => "MsuCseV2-Swift.h"
+    "SWIFT_OBJC_INTERFACE_HEADER_NAME" => "MsuCseV2-Swift.h",
+    "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
   }
+  
+  s.compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
   install_modules_dependencies(s)
 end
