@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ananasGit/react-native-msu-cse-v2.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
-  s.public_header_files = "ios/**/*.h"
+  s.private_header_files = "ios/**/*.h"
   
   s.pod_target_xcconfig = {
     "DEFINES_MODULE" => "YES",
