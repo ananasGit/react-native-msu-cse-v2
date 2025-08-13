@@ -8,7 +8,8 @@
 import Foundation
 
 
-internal class CSETextUtils {
+@objc
+internal class CSETextUtils: NSObject {
     static func hasAnyPrefix(_ number: String?, prefixes: [String]) -> Bool {
         guard let number = number else {
             return false

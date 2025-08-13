@@ -7,20 +7,21 @@
 
 import Foundation
 
-internal class CardUtils {
+@objc
+internal class CardUtils: NSObject {
     
-    static let  LENGTH_COMMON_CARD = 16;
-    static let  LENGTH_AMERICAN_EXPRESS = 15;
-    static let  LENGTH_DINERS_CLUB = 14;
+    static let  LENGTH_COMMON_CARD = 16
+    static let  LENGTH_AMERICAN_EXPRESS = 15
+    static let  LENGTH_DINERS_CLUB = 14
     static let MAESTRO_CARD_LENGTH = [12, 13, 14, 15, 16, 17, 18, 19]
     static let VISA_CARD_LENGTH = [16, 19]
     
     static let  PREFIXES_AMERICAN_EXPRESS = ["34", "37"]
     static let  PREFIXES_DISCOVER = ["60", "64", "65"]
-    static let  PREFIXES_JCB = ["35"];
+    static let  PREFIXES_JCB = ["35"]
     static let  PREFIXES_DINERS_CLUB = ["300", "301", "302", "303", "304",
             "305", "309", "36", "38", "39"]
-    static let  PREFIXES_VISA = ["4"];
+    static let  PREFIXES_VISA = ["4"]
     static let  PREFIXES_MASTERCARD = [
             "2221", "2222", "2223", "2224", "2225", "2226", "2227", "2228", "2229",
             "223", "224", "225", "226", "227", "228", "229",
@@ -136,7 +137,7 @@ internal class CardUtils {
             "979299"
     ]
     
-    static let PREFIX_DINACARD = "9891";
+    static let PREFIX_DINACARD = "9891"
     static let PREFIXES_DINACARD: [String] = [
                 PREFIX_DINACARD,
                 "655670",
@@ -195,7 +196,7 @@ internal class CardUtils {
                 "657396",
                 "657397",
                 "657398"
-        ];
+        ]
     
     static func isValidCVV(_ cvv: String) -> Bool {
         return isValidCVV(cvv, pan: nil)
@@ -258,27 +259,27 @@ internal class CardUtils {
         let spacelessCardNumber = pan.digits
         
         if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_AMERICAN_EXPRESS)) {
-            return CardBrand.AmericanExpress;
+            return CardBrand.AmericanExpress
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_DINACARD)) {
-            return CardBrand.Dinacard;
+            return CardBrand.Dinacard
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber,prefixes: PREFIXES_DISCOVER)) {
-            return CardBrand.Discover;
+            return CardBrand.Discover
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_JCB)) {
-            return CardBrand.Jcb;
+            return CardBrand.Jcb
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_DINERS_CLUB)) {
-            return CardBrand.DinersClub;
+            return CardBrand.DinersClub
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_VISA)) {
-            return CardBrand.Visa;
+            return CardBrand.Visa
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_MAESTRO)) {
-            return CardBrand.Maestro;
+            return CardBrand.Maestro
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_MASTERCARD)) {
-            return CardBrand.Mastercard;
+            return CardBrand.Mastercard
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_UNIONPAY)) {
-            return CardBrand.UnionPay;
+            return CardBrand.UnionPay
         } else if (CSETextUtils.hasAnyPrefix(spacelessCardNumber, prefixes: PREFIXES_TROY)) {
-            return CardBrand.Troy;
+            return CardBrand.Troy
         } else {
-            return CardBrand.Unknown;
+            return CardBrand.Unknown
         }
     }
     

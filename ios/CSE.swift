@@ -8,7 +8,8 @@
 import Foundation
 
 @available(iOS 10.0, *)
-public class CSE {
+@objc
+public class CSE: NSObject {
     
     private var _errors: [String] = []
     
@@ -265,7 +266,8 @@ internal protocol CSEApi {
     func fetchPublicKey(_ callback: @escaping (PublicKeyFetchResult) -> Void)
 }
 
-internal class CSEApiImpl: CSEApi {
+@objc
+internal class CSEApiImpl: NSObject, CSEApi {
     
     let developmentMode: Bool
     var endpoint: String {

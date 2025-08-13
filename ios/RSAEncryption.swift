@@ -9,7 +9,8 @@ import Foundation
 import Security
 
 @available(iOS 10.0, *)
-internal class RSAEncryption {
+@objc
+internal class RSAEncryption: NSObject {
     static func encrypt(_ publicKey: String, plain: String) -> EncryptionResult {
         
         guard let d = plain.data(using: .utf8) else {
@@ -49,7 +50,8 @@ internal enum EncryptionResult {
 //----------------------------------------------------------------------
 
 @available(iOS 10.0, *)
-internal class RSAUtils {
+@objc
+internal class RSAUtils: NSObject {
 
     private static let PADDING_FOR_DECRYPT = SecPadding()
 
