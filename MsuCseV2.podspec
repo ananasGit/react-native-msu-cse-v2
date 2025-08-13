@@ -15,10 +15,13 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
   
+  s.swift_version = '5.0'
+  
   s.pod_target_xcconfig = { 
     'DEFINES_MODULE' => 'YES',
     'SWIFT_INSTALL_OBJC_HEADER' => 'YES',
-    'SWIFT_OBJC_INTERFACE_HEADER_NAME' => 'MsuCseV2-Swift.h'
+    'SWIFT_OBJC_INTERFACE_HEADER_NAME' => 'MsuCseV2-Swift.h',
+    'SWIFT_COMPILATION_MODE' => 'wholemodule'
   }
 
   install_modules_dependencies(s)
