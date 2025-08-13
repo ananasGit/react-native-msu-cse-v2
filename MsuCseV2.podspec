@@ -14,7 +14,11 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ananasGit/react-native-msu-cse-v2.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
-
+  
+  s.pod_target_xcconfig = {
+    "DEFINES_MODULE" => "YES",
+    "SWIFT_OBJC_INTERFACE_HEADER_NAME" => "MsuCseV2-Swift.h"
+  }
 
   install_modules_dependencies(s)
 end
